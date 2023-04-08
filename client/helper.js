@@ -15,25 +15,25 @@ const sendPost = async (url, data, handler) => {
   const result = await response.json();
   document.getElementById('domoMessage').classList.add('hidden');
 
-  if(result.redirect) {
+  if (result.redirect) {
     window.location = result.redirect;
   }
 
-  if(result.error) {
+  if (result.error) {
     handleError(result.error);
   }
 
-  if(handler) {
+  if (handler) {
     handler(result);
   }
 };
 
 const hideError = () => {
-    document.getElementById('domoMessage').classList.add('hidden');
+  document.getElementById('domoMessage').classList.add('hidden');
 };
 
 module.exports = {
-    handleError,
-    sendPost,
-    hideError,
+  handleError,
+  sendPost,
+  hideError,
 };
